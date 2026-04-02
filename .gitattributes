@@ -1,0 +1,25 @@
+# Forçar que arquivos de texto usem LF (padrão Linux/Unix) ao serem commitados
+* text=auto eol=lf
+
+# Garantir que arquivos de código e configuração sempre usem LF
+*.py text eol=lf
+*.tsx text eol=lf
+*.ts text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+Dockerfile text eol=lf
+.env* text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+
+# Marcar arquivos binários para que o Git não tente alterar o conteúdo
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary
+*.ico binary
+*.svg binary
