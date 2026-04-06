@@ -92,5 +92,3 @@ Para manter a organização e a qualidade do código:
 ## 📄 Licença
 
 Projeto desenvolvido para fins acadêmicos e laboratoriais no SENAI ZEISS.
-
-```
