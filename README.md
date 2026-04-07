@@ -79,10 +79,16 @@ Para que o projeto continue organizado, siga estas regras:
    - No Backend: Após instalar, rode `pip freeze > requirements.txt`.
    - No Frontend: Para instalar uma nova dependência, use `npm install <nome_do_pacote>` (o package.json atualizará automaticamente).
 
+## 🤝 Fluxo de Trabalho (Git Flow)
+
+Para manter a organização e a qualidade do código:
+
+1. **Branches**: Nunca commite diretamente na `main` ou `dev`.
+2. **Features**: Crie uma branch `feat/nome-da-tarefa` a partir da `dev`.
+3. **Pull Requests (PRs)**: Ao terminar, abra um PR para a `dev`. 
+4. **Code Review**: Pelo menos 1 colega revisa o código e aprova para mesclar (merge).
+5. **Estabilidade**: A `main` é reservada para versões estáveis e testadas.
+
 ## 📄 Licença
 
 Projeto desenvolvido para fins acadêmicos e laboratoriais no SENAI ZEISS.
-
-```
-
-```
