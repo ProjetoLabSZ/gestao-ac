@@ -26,10 +26,10 @@ export function SidebarNavBottom({ items }: SidebarNavBottomProps) {
 
   return (
     <SidebarGroup className="px-2 group-data-[collapsible=icon]:px-0">
-      <SidebarGroupLabel className="text-[10px] font-normal uppercase tracking-wider text-sidebar-foreground/50 px-2 py-2 group-data-[collapsible=icon]:hidden">
+      <SidebarGroupLabel className="text-xs font-normal uppercase tracking-wider text-muted-foreground px-2 py-2 group-data-[collapsible=icon]:hidden">
         Configurações
       </SidebarGroupLabel>
-      <SidebarGroupContent>
+      <SidebarGroupContent className="mt-4.5">
         <SidebarMenu className="gap-2.5">
           {items.map((item) => {
             const Icon = item.icon
@@ -39,13 +39,13 @@ export function SidebarNavBottom({ items }: SidebarNavBottomProps) {
               <SidebarMenuItem key={item.path}>
                 <SidebarMenuButton
                   asChild
-                  isActive={isActive}
+                  data-active={isActive}
                   tooltip={item.label}
                   size="sm"
                   className={cn(
-                    'transition-colors duration-150 h-9 rounded-lg',
+                    'h-12 rounded-lg transition-colors duration-150',
                     isActive
-                      ? 'bg-sidebar-primary text-white font-medium hover:bg-sidebar-primary hover:text-white'
+                      ? '!bg-sidebar-primary !text-white font-medium hover:!bg-sidebar-primary/80 hover:!text-white'
                       : 'text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground'
                   )}
                 >
@@ -54,7 +54,7 @@ export function SidebarNavBottom({ items }: SidebarNavBottomProps) {
                     aria-current={isActive ? 'page' : undefined}
                   >
                     <Icon aria-hidden="true" />
-                    <span>{item.label}</span>
+                    <span className="text-sm font-normal">{item.label}</span>
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>

@@ -179,10 +179,11 @@ body {
   --sidebar-foreground: oklch(0.145 0 0);
   /* Azul SENAI institucional (#0e4194) como cor do item ativo da sidebar */
   --sidebar-primary: var(--senai-blue);
+  --sidebar-sec: var(--senai-blue-mid);
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #e8edf7;
   /* Azul muito claro para hover */
-  --sidebar-accent-foreground: #0e4194;
+  --sidebar-accent-foreground: var(--senai-blue-mid);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: #254aa5;
 }
@@ -283,5 +284,32 @@ body {
 
   .label {
     @apply text-sm font-semibold text-senai-text;
+  }
+
+  /* Avatars — semantic sizes */
+  .avatar-sm {
+    @apply size-8 rounded-full object-cover;
+  }
+
+  .avatar-md {
+    @apply size-10 rounded-full object-cover;
+  }
+
+  .avatar-border {
+    @apply border-2 border-sidebar-primary;
+  }
+
+  /* Section headers — standardized styling */
+  .section-header {
+    @apply text-xs font-semibold uppercase tracking-wider text-muted-foreground;
+  }
+
+  /* Badges */
+  .badge-sm {
+    @apply text-xs font-medium px-2 py-1 rounded-full;
+  }
+
+  .badge-status {
+    @apply bg-senai-red text-white;
   }
 }

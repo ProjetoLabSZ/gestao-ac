@@ -30,12 +30,10 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 
-// ─── Roles do sistema ────────────────────────────────────────────────────────
-
+// Roles do sistema
 export type UserRole = 'admin' | 'secretaria' | 'coordenador';
 
-// ─── Tipo base de item de navegação ──────────────────────────────────────────
-
+// Tipo base de item de navegação
 export interface NavItem {
   label: string;
   /** Rota exata — usada para comparar com location.pathname */
@@ -49,22 +47,20 @@ export interface NavItem {
   hidden?: boolean;
 }
 
-// ─── Estrutura de configuração por role ──────────────────────────────────────
-
+// Estrutura de configuração por role 
 interface RoleNavConfig {
   main: NavItem[];
   bottom: NavItem[];
 }
 
-// ─── Mapa de navegação por role ───────────────────────────────────────────────
+// Mapa de navegação por role
 //
-// Admin      → Configuração e segurança
-// Secretaria → Operacional e entrada de dados
-// Coordenador → Tomada de decisão e relatórios
+// Admin      - Configuração e segurança
+// Secretaria  - Operacional e entrada de dados
+// Coordenador - Tomada de decisão e relatórios
 
 export const navConfig: Record<UserRole, RoleNavConfig> = {
 
-  // ── Administrador ──────────────────────────────────────────────────────────
   admin: {
     main: [
       {
@@ -103,7 +99,6 @@ export const navConfig: Record<UserRole, RoleNavConfig> = {
     ],
   },
 
-  // ── Secretaria ─────────────────────────────────────────────────────────────
   secretaria: {
     main: [
       {
@@ -144,7 +139,6 @@ export const navConfig: Record<UserRole, RoleNavConfig> = {
     ],
   },
 
-  // ── Coordenador ────────────────────────────────────────────────────────────
   coordenador: {
     main: [
       {

@@ -13,18 +13,22 @@ import {
   SidebarInset,
   SidebarProvider,
 } from '@/components/ui/sidebar'
-import { AppSidebar } from './AppSidebar'
+import { AppSidebar } from './sidebar/AppSidebar'
+import { TopBar } from './topbar/TopBar'
 
 export function AppLayout() {
   return (
-    <SidebarProvider>
-      <AppSidebar />
+    <>
+      <TopBar />
+      <SidebarProvider>
+        <AppSidebar />
 
-      <SidebarInset>
-        <div className="flex-1 p-6">
-          <Outlet />
-        </div>
-      </SidebarInset>
-    </SidebarProvider>
+        <SidebarInset className="flex flex-col pt-16">
+          <div className="flex-1 p-6 overflow-auto">
+            <Outlet />
+          </div>
+        </SidebarInset>
+      </SidebarProvider>
+    </>
   )
 }

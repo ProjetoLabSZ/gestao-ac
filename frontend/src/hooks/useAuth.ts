@@ -4,7 +4,6 @@
  * Hook de autenticação — stub para desenvolvimento local.
  *
  * Substituir este stub pelo contexto real quando o backend de auth estiver pronto.
- * O contrato (formato de User) não muda — só a fonte dos dados.
  *
  * Para testar roles diferentes, alterar DEFAULT_ROLE abaixo.
  */
@@ -20,8 +19,6 @@ export interface AuthUser {
   avatarUrl?: string;
 }
 
-// ─── Stub: troque o role para testar cada sidebar ────────────────────────────
-//   'admin' | 'secretaria' | 'coordenador'
 const DEFAULT_ROLE: UserRole = 'coordenador';
 
 const STUB_USERS: Record<UserRole, AuthUser> = {
@@ -45,8 +42,7 @@ const STUB_USERS: Record<UserRole, AuthUser> = {
   },
 };
 
-// ─── Hook ────────────────────────────────────────────────────────────────────
-
+// Hook 
 export function useAuth() {
   const user = STUB_USERS[DEFAULT_ROLE];
 
