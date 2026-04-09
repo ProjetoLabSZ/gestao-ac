@@ -178,7 +178,7 @@ body {
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   /* Azul SENAI institucional (#0e4194) como cor do item ativo da sidebar */
-  --sidebar-primary: #0e4194;
+  --sidebar-primary: var(--senai-blue);
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #e8edf7;
   /* Azul muito claro para hover */
@@ -232,6 +232,20 @@ body {
 
   html {
     @apply font-sans;
+  }
+
+  /* Focus visível em todos os elementos focáveis (WCAG 2.1 AA) */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+
+  /* Link padrão melhorado */
+  a:not([class]) {
+    @apply text-primary underline transition-colors duration-200 hover:text-primary/80;
   }
 }
 
