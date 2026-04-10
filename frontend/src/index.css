@@ -73,8 +73,17 @@ body {
 }
 
 @theme inline {
-  --font-heading: var(--font-sans);
-  --font-sans: 'Geist Variable', sans-serif;
+  --font-heading: 'Montserrat Variable', sans-serif;
+  --font-sans: 'Montserrat Variable', sans-serif;
+
+  /* Escala Tipográfica Hierárquica (proporção 1.25x) */
+  --text-h1: 2.25rem / 1.2;
+  --text-h2: 1.8rem / 1.25;
+  --text-h3: 1.5rem / 1.3;
+  --text-h4: 1.25rem / 1.35;
+  --text-base: 1rem / 1.5;
+  --text-sm: 0.875rem / 1.5;
+  --text-xs: 0.75rem / 1.4;
 
   --color-senai-blue: var(--senai-blue);
   --color-senai-blue-light: var(--senai-blue-light);
@@ -169,11 +178,12 @@ body {
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   /* Azul SENAI institucional (#0e4194) como cor do item ativo da sidebar */
-  --sidebar-primary: #0e4194;
+  --sidebar-primary: var(--senai-blue);
+  --sidebar-sec: var(--senai-blue-mid);
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #e8edf7;
   /* Azul muito claro para hover */
-  --sidebar-accent-foreground: #0e4194;
+  --sidebar-accent-foreground: var(--senai-blue-mid);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: #254aa5;
 }
@@ -223,5 +233,83 @@ body {
 
   html {
     @apply font-sans;
+  }
+
+  /* Focus visível em todos os elementos focáveis (WCAG 2.1 AA) */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+
+  /* Link padrão melhorado */
+  a:not([class]) {
+    @apply text-primary underline transition-colors duration-200 hover:text-primary/80;
+  }
+}
+
+@layer components {
+  /* Headings */
+  .heading-h1 {
+    @apply text-h1 font-bold tracking-tight text-senai-text;
+  }
+
+  .heading-h2 {
+    @apply text-h2 font-bold tracking-tight text-senai-text;
+  }
+
+  .heading-h3 {
+    @apply text-h3 font-semibold text-senai-text;
+  }
+
+  .heading-h4 {
+    @apply text-h4 font-semibold text-senai-text;
+  }
+
+  /* Body */
+  .body {
+    @apply text-base font-normal text-senai-text;
+  }
+
+  .body-small {
+    @apply text-sm font-normal text-senai-text;
+  }
+
+  /* Caption & Labels */
+  .caption {
+    @apply text-xs font-medium text-senai-text-muted;
+  }
+
+  .label {
+    @apply text-sm font-semibold text-senai-text;
+  }
+
+  /* Avatars — semantic sizes */
+  .avatar-sm {
+    @apply size-8 rounded-full object-cover;
+  }
+
+  .avatar-md {
+    @apply size-10 rounded-full object-cover;
+  }
+
+  .avatar-border {
+    @apply border-2 border-sidebar-primary;
+  }
+
+  /* Section headers — standardized styling */
+  .section-header {
+    @apply text-xs font-semibold uppercase tracking-wider text-muted-foreground;
+  }
+
+  /* Badges */
+  .badge-sm {
+    @apply text-xs font-medium px-2 py-1 rounded-full;
+  }
+
+  .badge-status {
+    @apply bg-senai-red text-white;
   }
 }
