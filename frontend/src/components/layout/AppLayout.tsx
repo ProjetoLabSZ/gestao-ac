@@ -8,15 +8,22 @@
  *   ex: se !user → <Navigate to="/login" />
  */
 
-import { Outlet } from 'react-router-dom'
+import { Outlet, Navigate } from 'react-router-dom'
 import {
   SidebarInset,
   SidebarProvider,
 } from '@/components/ui/sidebar'
 import { AppSidebar } from './sidebar/AppSidebar'
 import { TopBar } from './topbar/TopBar'
+import { useAuth } from '@/hooks/useAuth'
 
 export function AppLayout() {
+  const { user } = useAuth()
+
+  if (!user) {
+    return <Navigate to="/login" replace />
+  }
+
   return (
     <>
       <TopBar />
