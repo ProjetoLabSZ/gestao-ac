@@ -2,7 +2,11 @@
 
 Este projeto automatiza a validação de Atividades Complementares (AC) para coordenadores da Faculdade SENAI. O sistema calcula automaticamente as equivalências de horas e gera relatórios de integralização.
 
-## 🚀 Stack Tecnológica
+## Documentação
+
+Para especificação técnica, diagramas e fluxos, veja o [índice de documentação](./docs/) do projeto.
+
+## Stack Tecnológica
 
 ### Frontend
 
@@ -20,7 +24,7 @@ Este projeto automatiza a validação de Atividades Complementares (AC) para coo
 
 ---
 
-## 🛠️ Como Executar o Projeto
+## Como Executar o Projeto
 
 A forma mais simples e recomendada de rodar o ambiente completo é utilizando **Docker**.
 
@@ -68,7 +72,7 @@ Se precisar rodar fora do Docker para depuração:
 
 ---
 
-## 📖 Documentação e Boas Práticas
+## Boas Práticas
 
 Para que o projeto continue organizado, siga estas regras:
 
@@ -79,16 +83,16 @@ Para que o projeto continue organizado, siga estas regras:
    - No Backend: Após instalar, rode `pip freeze > requirements.txt`.
    - No Frontend: Para instalar uma nova dependência, use `npm install <nome_do_pacote>` (o package.json atualizará automaticamente).
 
-## 🤝 Fluxo de Trabalho (Git Flow)
+## Fluxo de Trabalho (Git Flow)
 
 Para manter a organização e a qualidade do código:
 
 1. **Branches**: Nunca commite diretamente na `main` ou `dev`.
 2. **Features**: Crie uma branch `feat/nome-da-tarefa` a partir da `dev`.
-3. **Pull Requests (PRs)**: Ao terminar, abra um PR para a `dev`. 
+3. **Pull Requests (PRs)**: Ao terminar, abra um PR para a `dev`.
 4. **Code Review**: Pelo menos 1 colega revisa o código e aprova para mesclar (merge).
 5. **Estabilidade**: A `main` é reservada para versões estáveis e testadas.
 
-## 📄 Licença
+## Licença
 
-Projeto desenvolvido para fins acadêmicos e laboratoriais no SENAI ZEISS.
+Apache License - Version 2.0

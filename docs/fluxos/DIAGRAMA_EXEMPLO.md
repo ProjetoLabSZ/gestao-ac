@@ -1,5 +1,6 @@
-## PARA VISUALIZAR O DIAGRAMA:
-CTRL + SHIFT + V
+## Diagrama de Arquitetura Técnica
+
+CTRL + SHIFT + V para visualizar
 
 ```mermaid
 graph TD
@@ -21,3 +22,12 @@ graph TD
     Logic -.->|Futuro| OCR[Módulo Python OCR]
 
 ```
+
+---
+
+## Descrição
+
+- **Frontend**: Interface para Secretaria + Coordenador (Aluno é externo via email)
+- **Backend**: API REST com validação de regras (ANEXO A)
+- **Banco**: PostgreSQL com 9 tabelas (USUARIO, ALUNO, PROCESSO, ATIVIDADE_ALUNO, DOCUMENTACAO, etc.)
+- **OCR**: Futuro - reconhecimento de texto em certificados
