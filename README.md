@@ -62,6 +62,7 @@ Se precisar rodar fora do Docker para depuração:
    - Linux/Mac: `source venv/bin/activate`
    - Windows: `.\venv\Scripts\activate`
 4. Instale as dependências: `pip install -r requirements.txt`
+   - **Obs**: Se você estiver usando o Windows, o comando derá erro por causa do `uvloop`. Para resolver, basta comentar a linha do `requirements.txt` que contém essa dependência e rodar `pip install -r requirements.txt` novamente. **NÃO SUBA** essa linha comentada para o github.
 5. Inicie: `uvicorn app.main:app --reload`
 
 ### Frontend
