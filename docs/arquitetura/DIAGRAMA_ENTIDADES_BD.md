@@ -2,6 +2,34 @@
 
 Mapeamento das entidades do regulamento para tabelas PostgreSQL.
 
+## Padrões
+
+- snake_case para nomes de tabelas
+- nomes de tabelas sempre no plural
+- nomes de tabelas sempre em minúsculo
+
+## Alembic
+
+O Alembic serve para atualizar as tabelas no banco de dados.
+
+### Como usar
+
+Após criar uma nova entidade ou fazer alguma alteração em uma já existente, execute no terminal:
+
+**Windows:**
+```bash
+.\backend\scripts\alembic_migrate.bat "mensagem sobre a alteração"
+```
+
+**Linux**
+```bash
+.\backend\scripts\alembic_migrate.sh "mensagem sobre alteração"
+```
+
+Isso deve ser feito **sempre** que uma entidade for criada ou alterada.
+
+Não esquecer de adicionar a versão do banco criada pelo Alembic (dentro de `/migrations/versions/`) no repositório.
+
 ## Visualização (Mermaid)
 ```mermaid
 erDiagram
@@ -41,8 +69,8 @@ erDiagram
         uuid id PK
         uuid user_id FK
         uuid curso_id FK
-        datetime data_inicio
-        datetime data_fim
+        datetime data_criacao
+        datetime data_inativacao
         boolean ativo
     }
 

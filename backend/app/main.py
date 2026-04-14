@@ -19,8 +19,21 @@ SQLModel = get_session()
 def read_root():
     return {"status": "Sistema de Gestão AC Fatesg Online"}
 
-#rota de teste
+
+# rotas de teste:
 @app.get("/cursos/", response_model=List[Curso])
 def listar_cursos(session: Session = Depends(get_session)):
     cursos = session.exec(select(Curso)).all()
     return cursos
+
+
+@app.get(path="/usuarios/", response_model=List[Usuario])
+def listar_usuarios(session: Session = Depends(get_session)):
+    usuarios = session.exec(select(Usuario)).all()
+    return usuarios
+
+
+@app.get("/atividades/", response_model=List[Atividade])
+def listar_atividades(session: Session = Depends(get_session)):
+    atividades = session.exec(select(Atividade)).all()
+    return atividades
