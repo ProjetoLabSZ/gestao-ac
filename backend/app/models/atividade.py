@@ -9,6 +9,7 @@ from app.models.enums.tipo_documento import TipoDocumentoEnum
 
 class Atividade(SQLModel, table=True):
     __tablename__ = "atividades"
+
     id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
     modalidade: ModalidadeEnum
     tipo: str
@@ -17,7 +18,6 @@ class Atividade(SQLModel, table=True):
     limite_anual: Optional[int] = Field(default=None)
     limite_total: Optional[int] = Field(default=None)
     limite_por_semestre: Optional[int] = Field(default=None)
-
     tipo_documentacao: TipoDocumentoEnum
     obs: Optional[str] = None
     ativo: bool = Field(default=True)
