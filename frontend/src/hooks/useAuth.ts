@@ -8,19 +8,22 @@
  * Para testar roles diferentes, alterar DEFAULT_ROLE abaixo.
  */
 
-import { type UserRole } from '@/types/navigation';
+import { type UserRole } from '@/types/navigation'
 
 export interface AuthUser {
-  id: string;
-  name: string;
-  email: string;
-  role: UserRole;
-  /** URL do avatar. Deixe undefined para usar o avatar gerado (dicebear). */
-  avatarUrl?: string;
+  id: string
+  name: string
+  email: string
+  role: UserRole
+  avatarUrl?: string
 }
 
-const DEFAULT_ROLE: UserRole = 'coordenador';
+type UsuarioLogado = {
+  email: string
+  perfil: string
+}
 
+// Usuários base
 const STUB_USERS: Record<UserRole, AuthUser> = {
   admin: {
     id: '1',
@@ -40,16 +43,59 @@ const STUB_USERS: Record<UserRole, AuthUser> = {
     email: 'coordenador@senai.br',
     role: 'coordenador',
   },
-};
+}
 
-// Hook 
+// role do localStorage
+function getRoleFromStorage(): UserRole {
+  const raw = localStorage.getItem('usuarioLogado')
+
+  if (!raw) return 'coordenador'
+
+  try {
+    const usuario: UsuarioLogado = JSON.parse(raw)
+
+    if (
+      usuario.perfil === 'admin' ||
+      usuario.perfil === 'secretaria' ||
+      usuario.perfil === 'coordenador'
+    ) {
+      return usuario.perfil
+    }
+
+    return 'coordenador'
+  } catch {
+    return 'coordenador'
+  }
+}
+
 export function useAuth() {
-  const user = STUB_USERS[DEFAULT_ROLE];
+  const role = getRoleFromStorage()
+  const stored = localStorage.getItem('usuarioLogado')
 
-  // Avatar gerado pelo Dicebear se não houver URL real
+  let userData: AuthUser = STUB_USERS[role]
+
+  if (stored) {
+    try {
+      const usuario: UsuarioLogado = JSON.parse(stored)
+
+      userData = {
+        ...STUB_USERS[role],
+        email: usuario.email || STUB_USERS[role].email,
+      }
+    } catch {
+      userData = STUB_USERS[role]
+    }
+  }
+
+  // avatar
   const avatarUrl =
-    user.avatarUrl ??
-    `https://api.dicebear.com/8.x/avataaars/svg?seed=${encodeURIComponent(user.name)}`;
+    userData.avatarUrl ??
+    `https://api.dicebear.com/8.x/avataaars/svg?seed=${encodeURIComponent(userData.name)}`
 
-  return { user, avatarUrl };
+  return {
+    user: userData,
+    role,
+    avatarUrl,
+    isAuthenticated: !!stored,
+  }
 }
