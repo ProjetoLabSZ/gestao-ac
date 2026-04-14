@@ -1,8 +1,8 @@
-from enum import Enum
+from enum import StrEnum
 
 
-class ModalidadeEnum(str, Enum):
-    Ensino = "ensino"
-    Pesquisa = "pesquisa"
-    Extensao = "extensao"
-    Cultural = "cultural"
+class ModalidadeEnum(StrEnum):
+    ENSINO = "ensino"
+    PESQUISA = "pesquisa"
+    EXTENSAO = "extensao"
+    CULTURAL = "cultural"

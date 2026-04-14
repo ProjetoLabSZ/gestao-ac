@@ -1,9 +1,9 @@
-from enum import Enum
+from enum import StrEnum
 
 
-class TipoDocumentoEnum(str, Enum):
-    Certificado = "certificado"
-    Declaracao = "declaracao"
-    Historico = "historico"
-    Lista = "lista"
-    Comprovante = "comprovante"
+class TipoDocumentoEnum(StrEnum):
+    CERTIFICADO = "certificado"
+    DECLARACAO = "declaracao"
+    HISTORICO = "historico"
+    LISTA = "lista"
+    COMPROVANTE = "comprovante"

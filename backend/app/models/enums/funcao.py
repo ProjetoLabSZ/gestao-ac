@@ -1,7 +1,7 @@
-from enum import Enum
+from enum import StrEnum
 
 
-class FuncaoEnum(str, Enum):
-    admin = "admin"
-    secretaria = "secretaria"
-    coordenador = "coordenador"
+class FuncaoEnum(StrEnum):
+    ADMIN = "admin"
+    SECRETARIA = "secretaria"
+    COORDENADOR = "coordenador"
