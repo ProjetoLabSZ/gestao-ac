@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { render } from '@testing-library/react'
+import '@testing-library/jest-dom/vitest'
 import { BrowserRouter } from 'react-router-dom'
 import { TooltipProvider } from '@radix-ui/react-tooltip'
 import { AppLayout } from '../AppLayout'
@@ -65,8 +66,8 @@ describe('AppLayout - Responsive Behavior', () => {
       setViewportWidth(640)
       const { container } = renderAppLayout()
 
-      // Verifica se SidebarInset existe com pt-16 (padding-top para TopBar)
-      const sidebarInset = container.querySelector('.pt-16')
+      // Verifica se SidebarInset existe (usa data-testid no componente)
+      const sidebarInset = container.querySelector('[data-testid="sidebar-inset"]')
       expect(sidebarInset).toBeInTheDocument()
     })
   })
@@ -145,8 +146,8 @@ describe('AppLayout - Responsive Behavior', () => {
       setViewportWidth(640)
       const { container } = renderAppLayout()
 
-      const sidebarInset = container.querySelector('.pt-16')
-      expect(sidebarInset).toHaveClass('flex', 'flex-col', 'pt-16')
+      const sidebarInset = container.querySelector('[data-testid="sidebar-inset"]')
+      expect(sidebarInset).toHaveClass('flex', 'flex-col', 'min-h-0')
     })
 
     it('Outlet renderiza dentro de content area', () => {
